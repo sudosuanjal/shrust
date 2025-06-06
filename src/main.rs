@@ -1,3 +1,18 @@
+use std::io::{self, Write};
+
 fn main() {
-    println!("Hello, world!");
+    loop{
+        print!("$ ");
+        io::stdout().flush().unwrap();
+        
+        let mut input = String::new();
+        io::stdin().read_line(&mut input).unwrap();
+        let input = input.trim();
+        
+        if input.is_empty(){
+            continue;
+        }
+        
+        println!("{}: command not found", input);
+    }
 }
