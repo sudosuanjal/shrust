@@ -1,0 +1,7 @@
+# Ignore all target directories recursively
+**/target/
+**/*.rs.bk
+
+# Ignore Cargo.lock files if you want (usually keep for binaries)
+/**/Cargo.lock
+
