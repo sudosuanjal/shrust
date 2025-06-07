@@ -12,6 +12,10 @@ fn main() {
         if input.is_empty(){
             continue;
         }
+
+        if input.trim() == "exit 0"{
+            return;
+        }
         
         println!("{}: command not found", input);
     }
