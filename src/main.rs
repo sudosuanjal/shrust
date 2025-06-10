@@ -11,11 +11,19 @@ fn main() {
 
         match input.trim().split_whitespace().collect::<Vec<&str>>().as_slice() {
            ["exit"] => break,
-           ["exit", rest] => break,
+           ["exit", _rest] => break,
            ["echo", rest @..]=>println!("{}", rest.join(" ")),
+           ["type", rest @..]=>{
+                if rest.len() == 0{
+                    return;
+                }
+                match rest[0] {
+                    "type"|"echo"|"exit" => println!("{} is a shell builtin",{rest[0]}),
+                    _ => println!("{}: not found", rest[0]),
+                }
+           },
            [other] => println!("{}: command not found", other),
            _ => println!("invalid command"),
        }
     }
 }
-
